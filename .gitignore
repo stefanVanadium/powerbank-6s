@@ -1,0 +1,10 @@
+# KiCad
+*.lck
+*-backups/
+fp-info-cache
+*.kicad_prl
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
