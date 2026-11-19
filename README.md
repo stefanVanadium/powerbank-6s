@@ -2,10 +2,16 @@
 
 ![KiCad](https://img.shields.io/badge/KiCad-10-314CB0?logo=kicad&logoColor=white)
 ![USB PD](https://img.shields.io/badge/USB%20PD-PPS-informational)
-![Status](https://img.shields.io/badge/status-pre--schematic-orange)
+![Status](https://img.shields.io/badge/status-pcb--routed-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A serious DIY power bank built around **six removable 18650 cells**. It's meant to last for years and charge a phone as fast as the wall charger does.
+
+## PCB Preview (4-Layer, 152 × 136 mm)
+
+| Top — Power, PD/PPS, BMS & MCU | Bottom — 6× Removable 18650 Holders |
+|---|---|
+| ![PCB Top](images/pcb-top.png) | ![PCB Bottom](images/pcb-bottom.png) |
 
 ## Highlights
 
@@ -49,19 +55,21 @@ Full architecture, BOM with JLCPCB stock/prices, cost estimate and the cell-test
 
 ```
 powerbank.md          project documentation (start here)
-powerbank.kicad_*     KiCad 10 project
-lib/                  symbols, footprints, 3D models (generated from LCSC parts)
+connections.md        safety Wave 0, power tree, I2C map, MCU pinout
+powerbank.kicad_*     KiCad 10 project (6 hierarchical sheets + 4-layer PCB)
+images/               3D PCB renders
+lib/                  symbols, footprints, 3D models (verified against datasheets)
 datasheets/           datasheets for every chosen part
 powerbank.tex/.pdf    printable writeup
 ```
 
 ## Status
 
-- [x] Requirements, architecture, full BOM
-- [x] KiCad libraries + datasheets
-- [ ] Cell testing
-- [ ] Schematic
-- [ ] PCB
+- [x] Requirements, architecture, full BOM & Safety Wave 0
+- [x] KiCad libraries + datasheets + footprint audit
+- [x] Schematic (6 hierarchical sheets, 241 components, 0 ERC errors)
+- [x] PCB (4-layer 152 × 136 mm, 0 DRC violations, 0 unconnected pads)
+- [ ] Display FPC & Qi2 module finalization
 - [ ] Firmware
 - [ ] Case
 

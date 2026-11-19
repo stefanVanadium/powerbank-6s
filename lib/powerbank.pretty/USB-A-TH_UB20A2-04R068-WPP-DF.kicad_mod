@@ -49,8 +49,8 @@
 	(fp_line (start 6.55 11.63) (end -6.55 11.63) (layer F.CrtYd) (width 0.05))
 	(fp_line (start -6.55 11.63) (end -6.55 -2.36) (layer F.CrtYd) (width 0.05))
 	(model "${KICAD10_3DMODEL_DIR}/Connector_USB.3dshapes/USB_A_Molex_67643_Horizontal.step"
-		(offset (xyz 0.000 -1.350 0.000))
+		(offset (xyz 0.000 10.200 0.000))
 		(scale (xyz 1 1 1))
-		(rotate (xyz 0 0 180))
+		(rotate (xyz 0 0 0))
 	)
 )

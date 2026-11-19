@@ -168,12 +168,13 @@ Done:
 - [x] EasyEDA footprint audit completed + fixed `TPN2R304PL`, `BQ25756`, `LM73605` EP, `TPS25751S` EP paste, `USB-C` pad length
 - [x] C1 switched from `TPS26750` → `TPS25751S` (all 3 USB-C ports identical, native `GATE_VBUS`/`GATE_VSYS`)
 - [x] 3 buck inductors (`C155155`, `C278365`, `C44888`) imported into `lib/`
-- [x] hierarchical schematic v1 generated (`powerbank.kicad_sch` + 5 sub-sheets, 241 components, 0 ERC errors, 0 duplicate refs) — ready for review
+- [x] hierarchical schematic v1 generated (`powerbank.kicad_sch` + 5 sub-sheets, 241 components, 0 ERC errors, 0 duplicate refs)
+- [x] 4-layer PCB routed 100% (`powerbank.kicad_pcb`, `152 × 136 mm`, flat horizontal USB-A `C18077686`, clean silkscreen, `In1.Cu` GND + `In2.Cu` `/PACK_P` + `B.Cu` 6× 18650 serpentine bars, **0 DRC violations, 0 unconnected pads, 0 footprint errors**)
 
 Next:
-- [ ] review schematic in KiCad (`powerbank.kicad_pro`)
+- [ ] final visual review in KiCad (`powerbank.kicad_pro` + 3D Viewer)
 - [ ] buy the display + Qi2 module (when ready), replace generic SPI/Qi2 headers with exact FPC footprint / connector
-- [ ] PCB layout (4 layers) & DRC
+- [ ] generate JLCPCB manufacturing files (Gerbers, drill, BOM, CPL) and order
 
 ## Schematic
 powerbank.kicad_sch
