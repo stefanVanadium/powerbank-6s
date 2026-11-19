@@ -96,7 +96,7 @@ Inductors: BQ25756 uses 10µH (`TMPC1265HP-100MG-D`); buck inductors verified on
 | What | Part | LCSC | Stock | Price | Qty | Notes |
 |---|---|---|---|---|---|---|
 | USB-C | **TYPE-C-31-M-17** (6 pins, power only) | C283540 | 18366 | $0.20 | 3 | 5A, 20V, 4 THT shell legs. No USB data (not needed) |
-| USB-A | **Type-A-AF90** (THT) | C53207796 | 178 | $0.12 | 2 | rated 1.5A per contact in the datasheet, like almost all of them; limited to 2A by TPS25200 |
+| USB-A | **BX-TYPE-A-MWC4P** (flat horizontal THT, 2026-11-19) | C18077686 | 294 | $0.10 | 2 | flat horizontal right-angle THT, rated 1.5A per contact; limited to 2A by TPS25200 |
 | cell holder | **Keystone 1042** (18650, SMD) | C5249310 | 397 | $4.88 | 6 | expensive but solid |
 | Qi2 | 15W TX module with magnets | — AliExpress | | ~$10-15 | 1 | to choose: input voltage, size |
 | NTC | 10k 0402 | JLC basic | | | 4 | pack, Qi2, C1, converter area |
