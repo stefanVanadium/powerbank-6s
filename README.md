@@ -21,9 +21,9 @@ A serious DIY power bank built around **six removable 18650 cells**. It's meant 
 ## How it works
 
 ```
-USB-C1  in/out  ── TPS26750 ── BQ25756 ──┐
-USB-C2  out     ── TPS25751 ── BQ25756 ──┤
-USB-C3  out     ── TPS25751 ── BQ25756 ──┼── 6S removable pack ── BQ76952 BMS
+USB-C1  in/out  ── TPS25751S ── BQ25756 ──┐
+USB-C2  out     ── TPS25751S ── BQ25756 ──┤
+USB-C3  out     ── TPS25751S ── BQ25756 ──┼── 6S removable pack ── BQ76952 BMS
 USB-A1/A2 5V    ── LM73605 ──────────────┤
 Qi2 module 12V  ── LMR36520 ─────────────┤
 STM32G071 + TFT ── LMR36506 ─────────────┘
