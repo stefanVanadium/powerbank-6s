@@ -14123,7 +14123,7 @@
 			(uuid "b35113f4-205d-4b51-9ee2-741696c59c65")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/powerbank.3dshapes/TYPE-C-SMD_6P-L8.9-W6.8-H3.2-P1.00.wrl"
+		(model "${KIPRJMOD}/lib/powerbank.3dshapes/USB-C_TYPE-C-31-M-17.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -14131,7 +14131,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 180)
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -26309,7 +26309,7 @@
 			(uuid "5abfed32-6886-44fb-b475-5cf0f36ac289")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/powerbank.3dshapes/TYPE-C-SMD_6P-L8.9-W6.8-H3.2-P1.00.wrl"
+		(model "${KIPRJMOD}/lib/powerbank.3dshapes/USB-C_TYPE-C-31-M-17.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -26317,7 +26317,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 180)
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -33096,9 +33096,9 @@
 			(uuid "7c2b3ebf-5007-4619-a47c-e5d6b91ea43a")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_USB.3dshapes/USB_A_Molex_67643_Horizontal.step"
+		(model "${KIPRJMOD}/lib/powerbank.3dshapes/USB-A_BX-TYPE-A-MWC4P.step"
 			(offset
-				(xyz 0 10.2 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -35626,9 +35626,9 @@
 			(uuid "f5fb6029-557a-4bba-8ee2-28430a12f07c")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_USB.3dshapes/USB_A_Molex_67643_Horizontal.step"
+		(model "${KIPRJMOD}/lib/powerbank.3dshapes/USB-A_BX-TYPE-A-MWC4P.step"
 			(offset
-				(xyz 0 10.2 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -37910,7 +37910,7 @@
 			(uuid "85c4f420-34cf-474e-82da-a6a7754d4090")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/powerbank.3dshapes/TYPE-C-SMD_6P-L8.9-W6.8-H3.2-P1.00.wrl"
+		(model "${KIPRJMOD}/lib/powerbank.3dshapes/USB-C_TYPE-C-31-M-17.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -37918,7 +37918,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 180)
+				(xyz 0 0 0)
 			)
 		)
 	)
