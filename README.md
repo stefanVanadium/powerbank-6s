@@ -2,7 +2,7 @@
 
 ![KiCad](https://img.shields.io/badge/KiCad-10-314CB0?logo=kicad&logoColor=white)
 ![USB PD](https://img.shields.io/badge/USB%20PD-PPS-informational)
-![Status](https://img.shields.io/badge/status-pcb--routed-brightgreen)
+![Status](https://img.shields.io/badge/status-pcb%20routed%20%C2%B7%20case%20v1-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A serious DIY power bank built around **six removable 18650 cells**. It's meant to last for years and charge a phone as fast as the wall charger does.
@@ -20,9 +20,22 @@ A serious DIY power bank built around **six removable 18650 cells**. It's meant 
 - **Removable cells (6S1P)**: insert cells at any voltage, the BMS balances them, and you can pull them out fully charged
 - **Pass-through charging**: one wall charger fills the pack and your phone overnight
 - **Solar input**: plug a foldable USB-C panel into C1 (the charger tracks the panel's maximum power point)
-- **Magnetic Qi2 wireless** charging on the back
+- **Magnetic Qi2 wireless** charging under the glass front
 - **Color display** showing every cell's voltage, watts in/out per port, and which slot has a problem
 - **Real 6S BMS** with per-cell protection and balancing
+
+## Enclosure (v1 model)
+
+| Front: glass, Qi2 ring, display, buttons | Back: cell door, logo, feet, port labels |
+|---|---|
+| ![Case front](images/case-front.png) | ![Case back](images/case-back.png) |
+
+- **158.6 × 142.6 × 39.2 mm**, milled 6061 aluminium body (~290 g) + 2.5 mm aluminium cell door (~145 g)
+- **Glass front**: one 1.5 mm tempered glass, black inside, with a window for the display; the Qi2 coil sits right under it (wireless charging can't pass through aluminium)
+- **Aluminium mid-frame under the glass** doubles as the heat sink: thermal pads carry the heat from the 12 converter MOSFETs and 4 inductors into the frame and the walls. The case is sealed, with no vents
+- **Cell door**: 4 Torx screws into steel hex standoffs that also hold the board, so swapping cells never wears the aluminium threads. Cell polarity and slot numbers are engraved inside the door
+- Port openings follow the connector datasheets, with recesses for the plug overmolds and engraved labels
+- Model in [build123d](https://github.com/gumyr/build123d) (`enclosure/case.py`), collision check against the real board (`enclosure/check.py`, 0 collisions), FreeCAD file `enclosure/out/powerbank_case.FCStd`
 
 ## How it works
 
@@ -57,7 +70,8 @@ Full architecture, BOM with JLCPCB stock/prices, cost estimate and the cell-test
 powerbank.md          project documentation (start here)
 connections.md        safety Wave 0, power tree, I2C map, MCU pinout
 powerbank.kicad_*     KiCad 10 project (6 hierarchical sheets + 4-layer PCB)
-images/               3D PCB renders
+enclosure/            case model (build123d), collision check, FreeCAD file, STEP for milling
+images/               3D PCB and case renders
 lib/                  symbols, footprints, 3D models (verified against datasheets)
 datasheets/           datasheets for every chosen part
 powerbank.tex/.pdf    printable writeup
@@ -71,7 +85,8 @@ powerbank.tex/.pdf    printable writeup
 - [x] PCB (4-layer 152 × 136 mm, 0 DRC violations, 0 unconnected pads)
 - [ ] Display FPC & Qi2 module finalization
 - [ ] Firmware
-- [ ] Case
+- [x] Case v1 model (milled aluminium, glass front, FreeCAD)
+- [ ] Case: measure the cell height in the holder, final Qi2 / display sizes, then milling
 
 ## License
 
