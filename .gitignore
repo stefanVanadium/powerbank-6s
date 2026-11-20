@@ -8,3 +8,11 @@ fp-info-cache
 *.log
 *.out
 *.toc
+enclosure/.venv/
+__pycache__/
+# Enclosure: big regenerated exports (case.py, kicad-cli)
+enclosure/out/mesh/
+enclosure/out/step/
+enclosure/out/pcb.step
+enclosure/out/case_assembly.step
+enclosure/out/*.FCStd1

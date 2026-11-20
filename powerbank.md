@@ -171,10 +171,25 @@ Done:
 - [x] hierarchical schematic v1 generated (`powerbank.kicad_sch` + 5 sub-sheets, 241 components, 0 ERC errors, 0 duplicate refs)
 - [x] 4-layer PCB routed 100% (`powerbank.kicad_pcb`, `152 × 136 mm`, flat horizontal USB-A `C18077686`, clean silkscreen, `In1.Cu` GND + `In2.Cu` `/PACK_P` + `B.Cu` 6× 18650 serpentine bars, **0 DRC violations, 0 unconnected pads, 0 footprint errors**)
 
+- [x] connector 3D models redrawn from datasheets (`USB-C_TYPE-C-31-M-17.step`, `USB-A_BX-TYPE-A-MWC4P.step`, 2026-11-20): the old USB-C model sat 2 mm inside the board edge, USB-A was a Molex 67643 9 mm inside
+- [x] enclosure v1 model (2026-11-20, see [Enclosure](#enclosure))
+
 Next:
 - [ ] final visual review in KiCad (`powerbank.kicad_pro` + 3D Viewer)
 - [ ] buy the display + Qi2 module (when ready), replace generic SPI/Qi2 headers with exact FPC footprint / connector
 - [ ] generate JLCPCB manufacturing files (Gerbers, drill, BOM, CPL) and order
+
+## Enclosure
+Decided 2026-11-20, model in `enclosure/case.py` (build123d), FreeCAD file `enclosure/out/powerbank_case.FCStd` (rebuilt by `enclosure/freecad_assembly.py`), collision check `enclosure/check.py` (0 collisions with the current board).
+
+- **158.6 × 142.6 × 39.2 mm**, milled 6061 body (~290 g) + 2.5 mm 6061 door (~145 g)
+- **front**: one 1.5 mm tempered glass (black ink inside, display window) bonded into a pocket; under it an aluminium **mid-frame** (Z 11–13 mm above the board's back face) that is the heat sink: 1.5 mm gap pads from the 12 converter FETs and 4 inductors to milled bosses, heat spreads into the walls
+- **Qi2** on the front, lower left (board 33, 96): nothing taller than 3.3 mm under a 62 mm circle; 58 mm window in the mid-frame, module bonded under the glass. Placeholder Ø56 × 7 until the module is bought
+- **display** lower right of centre (board 100, 110), bare 1.54" FPC panel bonded under the glass (placeholder 27.8 × 32.6 × 1.6). The header-mounted module does not fit the 11.4 mm front stack
+- **buttons**: 2 aluminium plungers in the right bezel over SW1/SW2
+- **ports**: stadium/rect openings 0.2 mm around the shells, 2.3 mm outer pockets for the plug overmolds, labels laser-engraved above
+- **cells / door**: door in a 1.5 mm rebate, 4× M3×6 countersunk Torx into **steel M3 × 22 hex standoffs** (F-M) at H1–H4; the standoffs also clamp the board to the mid-frame bosses (Helicoil M3×1.5D). Steel threads, so frequent opening doesn't wear the aluminium. Foam strips on the door press the cells into the holders; polarity + slot number engraved inside the door, logo + text outside, 4 rubber feet
+- **to verify before milling**: cell axis height in the Keystone 1042 (estimated 9.9 mm under the board from the EasyEDA model), Qi2 module size, display panel outline
 
 ## Schematic
 powerbank.kicad_sch
