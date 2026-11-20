@@ -16,3 +16,4 @@ enclosure/out/step/
 enclosure/out/pcb.step
 enclosure/out/case_assembly.step
 enclosure/out/*.FCStd1
+enclosure/out/render/

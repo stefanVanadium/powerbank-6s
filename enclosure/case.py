@@ -91,7 +91,7 @@ HOT += ["L_BB_C1", "L_BB_C2", "L_BB_C3", "L_5V"]
 HOT_SHRINK = 0.4                # boss face 0.4 mm inside the part body outline
 
 # --- Qi2, display, buttons ---------------------------------------------------------------------
-QI2_C = b2e(33.0, 96.0)         # nothing taller than 3.34 under a 62 mm circle here
+QI2_C = b2e(54.0, 100.0)        # nothing taller than 3.71 (L_3V3) under a 62 mm circle; ring + display centred as a pair
 QI2_D, QI2_T = 56.0, 7.0        # placeholder: module not bought yet (coil + magnets + board)
 QI2_WINDOW = 58.0
 DISP_C = b2e(100.0, 110.0)

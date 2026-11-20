@@ -184,7 +184,7 @@ Decided 2026-11-20, model in `enclosure/case.py` (build123d), FreeCAD file `encl
 
 - **158.6 × 142.6 × 39.2 mm**, milled 6061 body (~290 g) + 2.5 mm 6061 door (~145 g)
 - **front**: one 1.5 mm tempered glass (black ink inside, display window) bonded into a pocket; under it an aluminium **mid-frame** (Z 11–13 mm above the board's back face) that is the heat sink: 1.5 mm gap pads from the 12 converter FETs and 4 inductors to milled bosses, heat spreads into the walls
-- **Qi2** on the front, lower left (board 33, 96): nothing taller than 3.3 mm under a 62 mm circle; 58 mm window in the mid-frame, module bonded under the glass. Placeholder Ø56 × 7 until the module is bought
+- **Qi2** on the front, lower half, left of the display (board 54, 100), so ring + display sit centred as a pair: nothing taller than 3.71 mm (L_3V3) under a 62 mm circle (module underside at 6.15 mm), window 2 mm from the display cut-out, 1.7 mm from the nearest power stage; 58 mm window in the mid-frame, module bonded under the glass. Placeholder Ø56 × 7 until the module is bought
 - **display** lower right of centre (board 100, 110), bare 1.54" FPC panel bonded under the glass (placeholder 27.8 × 32.6 × 1.6). The header-mounted module does not fit the 11.4 mm front stack
 - **buttons**: 2 aluminium plungers in the right bezel over SW1/SW2
 - **ports**: stadium/rect openings 0.2 mm around the shells, 2.3 mm outer pockets for the plug overmolds, labels laser-engraved above

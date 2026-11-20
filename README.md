@@ -7,6 +7,11 @@
 
 A serious DIY power bank built around **six removable 18650 cells**. It's meant to last for years and charge a phone as fast as the wall charger does.
 
+<p align="center">
+  <img src="images/hero_black.jpg" alt="Render of the power bank in black anodized aluminium, front and back" width="720">
+</p>
+<p align="center"><sub>158.6 × 142.6 × 39.2 mm, milled 6061 aluminium with a polished front edge and a glass front: Qi2 ring and colour display under the glass, cell door with laser marking on the back.</sub></p>
+
 ## PCB Preview (4-Layer, 152 × 136 mm)
 
 | Top — Power, PD/PPS, BMS & MCU | Bottom — 6× Removable 18650 Holders |
@@ -25,6 +30,11 @@ A serious DIY power bank built around **six removable 18650 cells**. It's meant 
 - **Real 6S BMS** with per-cell protection and balancing
 
 ## Enclosure (v1 model)
+
+<p align="center">
+  <img src="images/hero_grey.jpg" alt="Render of the power bank in grey anodized aluminium, front and back" width="720">
+</p>
+<p align="center"><sub>Rendered in Blender from the real model: the case parts from <code>enclosure/case.py</code> (<code>enclosure/blender_scene.py</code>).</sub></p>
 
 | Front: glass, Qi2 ring, display, buttons | Back: cell door, logo, feet, port labels |
 |---|---|
