@@ -2,8 +2,10 @@
 Same studio and materials as the mp3 player renders.
 
   blender -b --python blender_scene.py -- hero <grey|black>
+  blender -b --python blender_scene.py -- explode_anim [frames] [variant]
 
-Inputs: out/mesh/*.stl (case.py), out/screen.png (screen.py). Output: out/render/hero_<variant>.png
+Inputs: out/mesh/*.stl (case.py), out/screen.png (screen.py), out/pcb.glb (kicad-cli pcb export glb, see
+export_pcb below). Output: out/render/hero_<variant>.png, out/render/explode_anim/####.png
 """
 import math
 import sys
@@ -31,6 +33,11 @@ PARTS = {"body": ("alu", 0), "door": ("alu", 0), "button1": ("alu", 0), "button2
          "glass": ("glass", 0), "ink": ("ink", -0.02), "qi2_ring": ("ring", 0.035),
          "display_panel": ("display", -0.02), "engraving": ("engraving", 0), "feet": ("rubber", 0),
          "screw1": ("screw", 0), "screw2": ("screw", 0), "screw3": ("screw", 0), "screw4": ("screw", 0)}
+INNER = {"qi2_module": ("qi2", 0), "thermal_pads": ("pad", 0), "foam": ("foam", 0),
+         **{f"cell{i}": ("cell", 0) for i in range(1, 7)}, **{f"standoff{i}": ("steel", 0) for i in range(1, 5)}}
+PCB_OFFSET = Vector((-76.0 * MM, 68.0 * MM, 0.0))   # board glb (x, -y) -> enclosure frame
+# kicad-cli pcb export glb -f --subst-models --include-tracks --include-pads --include-zones \
+#     --include-soldermask --include-silkscreen -o enclosure/out/pcb.glb powerbank.kicad_pcb
 
 
 def reset():
@@ -197,6 +204,11 @@ def shared_materials():
         "screen": screen_mat(),
         "screw": mat("black oxide", (0.05, 0.05, 0.055), metallic=1.0, rough=0.3),
         "rubber": mat("rubber feet", (0.02, 0.02, 0.02), rough=0.85),
+        "qi2": mat("qi2 module", (0.025, 0.025, 0.03), rough=0.6),
+        "pad": mat("gap pad", (0.75, 0.5, 0.55), rough=0.8),
+        "foam": mat("pe foam", (0.03, 0.03, 0.03), rough=0.95),
+        "cell": mat("18650 wrap", (0.02, 0.12, 0.45), rough=0.25),
+        "steel": mat("steel", (0.8, 0.8, 0.82), metallic=1.0, rough=0.25),
     }
 
 
@@ -214,7 +226,7 @@ def split_chamfer(obj, chamfer, base):
     bm.free()
 
 
-def build_device(name, variant, mats):
+def build_device(name, variant, mats, inner=False):
     """One powerbank as a collection under an empty (origin at the case centre)."""
     col = bpy.data.collections.new(name)
     bpy.context.scene.collection.children.link(col)
@@ -222,8 +234,8 @@ def build_device(name, variant, mats):
     col.objects.link(root)
     alu = blasted(f"alu {variant}", VARIANTS[variant])
     centre = Vector((0, 0, (Z_BACK + Z_FRONT) / 2))
-    objs = []
-    for p, (key, dz) in PARTS.items():
+    objs, parts = [], {}
+    for p, (key, dz) in ({**PARTS, **INNER} if inner else PARTS).items():
         for o in import_stl(OUT / "mesh" / f"{p}.stl", col):
             o.location.z += dz * MM
             o.data.materials.clear()
@@ -231,6 +243,7 @@ def build_device(name, variant, mats):
             if p == "body":
                 split_chamfer(o, mats["chamfer"], alu)
             objs.append(o)
+            parts.setdefault(p, []).append(o)
     bpy.ops.mesh.primitive_plane_add(size=AA, location=(*AA_C, INK_TOP - 0.01 * MM))
     scr = bpy.context.object
     for c in scr.users_collection:
@@ -238,10 +251,29 @@ def build_device(name, variant, mats):
     col.objects.link(scr)
     scr.data.materials.append(mats["screen"])
     objs.append(scr)
+    parts["screen"] = [scr]
+    if inner:
+        before = set(bpy.data.objects)
+        bpy.ops.import_scene.gltf(filepath=str(OUT / "pcb.glb"))
+        new = [o for o in bpy.data.objects if o not in before]
+        for o in new:
+            for c in o.users_collection:
+                c.objects.unlink(o)
+            col.objects.link(o)
+        top = [o for o in new if o.parent is None]
+        for o in top:
+            o.location += PCB_OFFSET
+        objs += top
+        parts["pcb"] = top
     for o in objs:
         o.parent = root
         o.matrix_parent_inverse = Matrix.Translation(-centre)
+    LAST_PARTS.clear()
+    LAST_PARTS.update(parts)
     return root
+
+
+LAST_PARTS = {}
 
 
 def render(sc, path):
@@ -265,7 +297,73 @@ def hero(variant, samples=256):
     render(sc, RENDER / f"hero_{variant}.png")
 
 
+# exploded offsets along the case normal (mm, front +), in the order the parts fly out
+EXPLODE = [
+    (("screw1", "screw2", "screw3", "screw4"), -150), (("door", "feet"), -120), (("foam",), -98),
+    (("cell1", "cell2", "cell3", "cell4", "cell5", "cell6"), -72),
+    (("pcb", "standoff1", "standoff2", "standoff3", "standoff4"), -38), (("thermal_pads",), -22),
+    (("qi2_module", "display_panel", "screen"), 40), (("button1", "button2"), 62),
+    (("glass", "ink", "qi2_ring"), 84),
+]
+
+
+def explode_anim(frames=210, variant="grey", samples=32, only=None):
+    """Assembled -> exploded (staggered, eased) -> hold -> back together, camera orbiting.
+    The case stands on its bottom edge, front toward the camera; the stack opens front/back."""
+    sc = reset()
+    sc.cycles.samples = samples
+    sc.render.resolution_x, sc.render.resolution_y = 1280, 720
+    sc.world.node_tree.nodes["Background.001"].inputs[0].default_value = (0.012, 0.012, 0.014, 1)
+    mats = shared_materials()
+    d = build_device("powerbank exploded", variant, mats, inner=True)
+    pose(d, (0, 0, (142.6 / 2 + 0.5) * MM), (90, 0, -26))
+    studio(sc, 1.5)
+    target = Vector((0.0, 0.0, 0.075))
+    pivot = bpy.data.objects.new("orbit", None)
+    sc.collection.objects.link(pivot)
+    pivot.location = target
+    cam = camera(sc, (0.47, -0.58, 0.24), target, lens=58, fstop=16.0)
+    bpy.context.view_layer.update()
+    cam.parent = pivot
+    cam.matrix_parent_inverse = pivot.matrix_world.inverted()
+    out_start, out_len, stagger = 20, 45, 3
+    hold_end = 130
+    n = len(EXPLODE)
+    for i, (names, dz) in enumerate(EXPLODE):
+        off = Vector((0, 0, dz * MM))
+        for p in names:
+            for o in LAST_PARTS.get(p, []):
+                base = o.location.copy()
+                f0 = out_start + i * stagger
+                f1 = hold_end + (n - 1 - i) * stagger      # reassemble in reverse order
+                for f, loc in ((f0, base), (f0 + out_len, base + off), (f1, base + off), (f1 + out_len, base)):
+                    o.location = loc
+                    o.keyframe_insert("location", frame=f)
+                for fc in o.animation_data.action.fcurves:
+                    for k in fc.keyframe_points:
+                        k.interpolation = "BEZIER"
+                        k.easing = "EASE_IN_OUT"
+    pivot.rotation_euler = (0, 0, math.radians(-12))
+    pivot.keyframe_insert("rotation_euler", frame=1)
+    pivot.rotation_euler = (0, 0, math.radians(18))
+    pivot.keyframe_insert("rotation_euler", frame=frames)
+    sc.frame_start, sc.frame_end = 1, frames
+    sc.render.image_settings.file_format = "PNG"
+    if only:                                   # test stills: only=[frame, ...]
+        for f in only:
+            sc.frame_set(f)
+            render(sc, RENDER / f"explode_test_{f:04d}.png")
+        return
+    (RENDER / "explode_anim").mkdir(parents=True, exist_ok=True)
+    sc.render.filepath = str(RENDER / "explode_anim" / "####")
+    bpy.ops.render.render(animation=True)
+
+
 if __name__ == "__main__":
     args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else ["hero", "grey"]
     if args[0] == "hero":
         hero(args[1] if len(args) > 1 else "grey", int(args[2]) if len(args) > 2 else 256)
+    elif args[0] == "explode_anim":
+        explode_anim(int(args[1]) if len(args) > 1 else 210, args[2] if len(args) > 2 else "grey")
+    elif args[0] == "explode_test":      # stills of single frames: explode_test <frame> [frame ...]
+        explode_anim(variant="grey", samples=16, only=[int(a) for a in args[1:]] or [1, 100])

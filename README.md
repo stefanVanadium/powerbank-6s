@@ -34,7 +34,10 @@ A serious DIY power bank built around **six removable 18650 cells**. It's meant 
 <p align="center">
   <img src="images/hero_grey.jpg" alt="Render of the power bank in grey anodized aluminium, front and back" width="720">
 </p>
-<p align="center"><sub>Rendered in Blender from the real model: the case parts from <code>enclosure/case.py</code> (<code>enclosure/blender_scene.py</code>).</sub></p>
+<p align="center">
+  <img src="images/explode.gif" alt="Exploded view animation: glass, display and Qi2 module, body, PCB, cells, foam, door and screws" width="640">
+</p>
+<p align="center"><sub>Rendered in Blender from the real model: the case parts from <code>enclosure/case.py</code> and the routed board exported from KiCad (<code>enclosure/blender_scene.py</code>).</sub></p>
 
 | Front: glass, Qi2 ring, display, buttons | Back: cell door, logo, feet, port labels |
 |---|---|
