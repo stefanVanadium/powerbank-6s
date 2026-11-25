@@ -24,3 +24,7 @@
 (rule "PACK clearance (25.2 V max)"
   (condition "A.NetClass == 'PACK' && B.NetClass != 'PACK'")
   (constraint clearance (min 0.25mm)))
+
+(rule "Fine-pitch QFN pad-to-pad inside its own footprint (U_3V3 VQFN-9 2x2)"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.insideCourtyard('U_3V3') && B.insideCourtyard('U_3V3')")
+  (constraint clearance (min 0.15mm)))
