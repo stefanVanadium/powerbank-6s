@@ -32,3 +32,7 @@
 (rule "Fine-pitch IC escape: 0.15 mm clearance inside the courtyard of 0.4/0.5 mm pitch ICs"
   (condition "A.intersectsCourtyard('U_PD_*') || A.intersectsCourtyard('U_BQ_*') || A.intersectsCourtyard('U_5V') || A.intersectsCourtyard('U_BMS') || A.intersectsCourtyard('U_MCU') || A.intersectsCourtyard('U_3V3') || B.intersectsCourtyard('U_PD_*') || B.intersectsCourtyard('U_BQ_*') || B.intersectsCourtyard('U_5V') || B.intersectsCourtyard('U_BMS') || B.intersectsCourtyard('U_MCU') || B.intersectsCourtyard('U_3V3')")
   (constraint clearance (min 0.15mm)))
+
+(rule "No via in or touching a small SMD pad (solder wicking); IC thermal pads are exempt"
+  (condition "A.Type == 'Via' && B.Type == 'Pad' && B.Pad_Type == 'SMD' && B.existsOnLayer('F.Cu') && B.Size_X < 2.0mm && B.Size_Y < 2.0mm")
+  (constraint physical_hole_clearance (min 0.35mm)))
