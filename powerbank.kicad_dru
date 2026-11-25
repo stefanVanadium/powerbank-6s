@@ -30,5 +30,5 @@
   (constraint clearance (min 0.15mm)))
 
 (rule "Fine-pitch IC escape: 0.15 mm clearance inside the courtyard of 0.4/0.5 mm pitch ICs"
-  (condition "A.insideCourtyard('U_PD_*') || A.insideCourtyard('U_BQ_*') || A.insideCourtyard('U_5V') || A.insideCourtyard('U_BMS') || A.insideCourtyard('U_MCU') || A.insideCourtyard('U_3V3')")
+  (condition "A.intersectsCourtyard('U_PD_*') || A.intersectsCourtyard('U_BQ_*') || A.intersectsCourtyard('U_5V') || A.intersectsCourtyard('U_BMS') || A.intersectsCourtyard('U_MCU') || A.intersectsCourtyard('U_3V3') || B.intersectsCourtyard('U_PD_*') || B.intersectsCourtyard('U_BQ_*') || B.intersectsCourtyard('U_5V') || B.intersectsCourtyard('U_BMS') || B.intersectsCourtyard('U_MCU') || B.intersectsCourtyard('U_3V3')")
   (constraint clearance (min 0.15mm)))
