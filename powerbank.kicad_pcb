@@ -9141,7 +9141,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "34e0c001-c314-4813-992b-38811db7c9d0")
-		(at 90 123)
+		(at 100.3 126.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_I2C1_SCL"
@@ -12363,7 +12363,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "47020d34-0a4b-41b9-9ad1-5d3ef8152e53")
-		(at 98 115)
+		(at 108.3 118.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_BOOT0"
@@ -12522,7 +12522,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "47b906ab-c3bf-4751-8a25-d93db12faf7c")
-		(at 86.4 123.3)
+		(at 96.7 126.9)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_LED"
@@ -12840,7 +12840,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "4a5f3bd1-884f-4946-a2ee-b2f226495c9a")
-		(at 86.4 106.7)
+		(at 96.7 110.3)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_VREF"
@@ -13777,7 +13777,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "4d3d94b3-51d8-4a62-9083-7ec6f665ba44")
-		(at 98.6 113.2)
+		(at 108.9 116.8)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_NTC_QI2"
@@ -15457,7 +15457,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "56ee97b5-575b-46da-b42d-7c03587825c8")
-		(at 90.5 108)
+		(at 100.8 111.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_ALERT"
@@ -15917,7 +15917,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "57db8380-78e0-4616-b1be-f0ff57ab7d01")
-		(at 81 115)
+		(at 91.3 118.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_NTC_PWR"
@@ -18493,7 +18493,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "628a3ea5-7d21-4930-97f1-5c300506aad8")
-		(at 98.8 117.1)
+		(at 109.1 120.7)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_IRQ2"
@@ -20197,7 +20197,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "6cce40c3-780a-4ff1-9084-2196d84fa788")
-		(at 95 115)
+		(at 105.3 118.6)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_MCU1"
@@ -20833,7 +20833,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "706e5b48-4268-4488-ac2b-61162126d9ab")
-		(at 90.5 110)
+		(at 100.8 113.6)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_NTC_PWR"
@@ -21946,7 +21946,7 @@
 	(footprint "LED_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "76fed9fc-c5bb-49b6-bfa3-976fbd166e16")
-		(at 86.5 108.9)
+		(at 106.2 126.4)
 		(descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf)")
 		(tags "LED")
 		(property "Reference" "D_STAT"
@@ -23392,7 +23392,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "7d3872a0-7cc6-4069-987a-468e6aed9e29")
-		(at 87.5 110.7)
+		(at 97.8 114.3)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_NRST"
@@ -27946,7 +27946,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "99f6305c-933f-4a5e-a553-f14a859c2cb1")
-		(at 94 108.1)
+		(at 104.3 111.7)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_I2C1_SDA"
@@ -29630,7 +29630,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "a1f094c8-8d19-435c-bdeb-227a68a23ab8")
-		(at 94.6 117)
+		(at 104.9 120.6)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_MCU2"
@@ -31796,7 +31796,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "aebe663c-f375-442b-b685-19f5153b61fc")
-		(at 94.5 122.8)
+		(at 104.8 126.4)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_IRQ3"
@@ -36105,7 +36105,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "ccb1643c-dcf3-45e4-93e8-176073bd9d80")
-		(at 96.9 111)
+		(at 107.2 114.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_IRQ1"
@@ -36900,7 +36900,7 @@
 	(footprint "C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "cef592b0-44a1-4967-9d05-575b2b2f0043")
-		(at 93.9 110.4)
+		(at 104.2 114)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C_VREF"
@@ -38449,7 +38449,7 @@
 	(footprint "LQFP-48_L7.0-W7.0-P0.50-LS9.0-BL"
 		(layer "F.Cu")
 		(uuid "d5d57f08-a8ac-417a-9f59-6da208eed713")
-		(at 87.7 116.9)
+		(at 98 120.5)
 		(property "Reference" "U_MCU"
 			(at 0 -8.25 0)
 			(layer "F.SilkS")
@@ -40725,7 +40725,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "dcf4b9c3-8991-463f-8e8a-160dba2eec2d")
-		(at 83.1 109.2)
+		(at 91.4 112.8)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_NTC_QI2"
@@ -40884,7 +40884,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "dfca7f61-1c01-448f-a8d0-20e5a4517254")
-		(at 89.5 106)
+		(at 99.8 109.6)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "TH_PWR"
@@ -42867,7 +42867,7 @@
 	(footprint "R_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "eaf33bc4-8559-4e88-890e-f3333e2661bc")
-		(at 92.6 106.4)
+		(at 102.9 110)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "TH_QI2"
