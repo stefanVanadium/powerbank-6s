@@ -1,0 +1,26 @@
+(version 1)
+# powerbank custom DRC rules — sprint PCB re-route, 2026-11-25
+# JLC multilayer limits (jlcpcb.com/capabilities/pcb-capabilities, read 2026-11-25) are in Board Setup;
+# these rules add what Board Setup cannot express.
+
+(rule "In1.Cu is solid GND: no tracks"
+  (layer "In1.Cu")
+  (constraint disallow track))
+
+(rule "In2.Cu is the PACK_P plane: no other tracks"
+  (layer "In2.Cu")
+  (condition "A.NetName != '/PACK_P'")
+  (constraint disallow track))
+
+(rule "No vias on switching nodes"
+  (condition "A.Type == 'Via' && (A.NetName == '/USB_C1_DRP_0x20/SW1' || A.NetName == '/USB_C1_DRP_0x20/SW2' || A.NetName == '/USB_C2_SRC_0x21/SW1' || A.NetName == '/USB_C2_SRC_0x21/SW2' || A.NetName == '/USB_C3_SRC_0x22/SW1' || A.NetName == '/USB_C3_SRC_0x22/SW2' || A.NetName == '/BUCK_5V_USBA/SW_5V' || A.NetName == '/BUCK_12V_QI2/SW_12V' || A.NetName == '/MCU_UI/SW_3V3')")
+  (constraint disallow via))
+
+(rule "Power vias 0.8/0.4"
+  (condition "A.Type == 'Via' && (A.NetClass == 'PACK' || A.NetClass == 'POWER')")
+  (constraint via_diameter (min 0.8mm))
+  (constraint hole_size (min 0.4mm)))
+
+(rule "PACK clearance (25.2 V max)"
+  (condition "A.NetClass == 'PACK' && B.NetClass != 'PACK'")
+  (constraint clearance (min 0.25mm)))
