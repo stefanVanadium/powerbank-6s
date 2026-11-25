@@ -28,3 +28,7 @@
 (rule "Fine-pitch QFN pad-to-pad inside its own footprint (U_3V3 VQFN-9 2x2)"
   (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.insideCourtyard('U_3V3') && B.insideCourtyard('U_3V3')")
   (constraint clearance (min 0.15mm)))
+
+(rule "Fine-pitch IC escape: 0.15 mm clearance inside the courtyard of 0.4/0.5 mm pitch ICs"
+  (condition "A.insideCourtyard('U_PD_*') || A.insideCourtyard('U_BQ_*') || A.insideCourtyard('U_5V') || A.insideCourtyard('U_BMS') || A.insideCourtyard('U_MCU') || A.insideCourtyard('U_3V3')")
+  (constraint clearance (min 0.15mm)))
